@@ -1,9 +1,8 @@
 "use strict";
-exports.__esModule = true;
 /// <reference path="../typings/mocha/mocha.d.ts" />
 /// <reference path="../typings/chai/chai.d.ts"/>
-var calc_1 = require("../lib/calc");
-var chai_1 = require("chai");
+var calc_1 = require('../lib/calc');
+var chai_1 = require('chai');
 var calc = new calc_1["default"]();
 xdescribe('Excluded Test', function () {
     xit('This is test is excluded from execution', function () {
