@@ -2,6 +2,9 @@
 /// <reference path="../typings/chai/chai.d.ts"/>
 import { expect } from 'chai';
 import {log,catProd} from '../lib/Config';
+import {createSquare} from '../lib/interfaces/Interface1'
+import {Point} from '../lib/interfaces/ReadonlyVariablesInterface'
+import {Square} from './Square'
 
 describe('Boolean test',()=>{
    it('should test boolean operator',()=>{
@@ -59,18 +62,67 @@ describe('Array test',()=>{
 
 describe('Tuples test',()=>{
     it('should test tuples',()=>{
-        log.info("Tuples test");
-        let tuple1 = ['one','two','three','four','five'];
-        expect(tuple1).length(5);
-        //filter one value
-        expect(tuple1.filter(s=>(s.indexOf('ne')>-1))[0]).equals("one");
-        //filter multiple values
-        expect(tuple1.filter(s=>(s.indexOf('e')>-1))).length(3)
-        tuple1[5]='six';
-        expect(tuple1).length(6);
-        tuple1[0]='oneeeeeee';
-        expect(tuple1).length(6);
+        log.info('Tuple Test');
+        let tuple1:[string,number,boolean,Date];
+        tuple1 = ['t1',10,true,new Date()];
+        log.info('tuple1->'+tuple1);
+        expect(tuple1).length(4);
     }) ;
 });
 
+describe('Enum Test',()=>{
+    it('should test enum',()=>{
+        log.info('Enum Test');
+        enum Color {Red, Green, Blue};
+        let colorA: Color = Color.Blue;
+        log.info('enum colorA->'+colorA);
+        expect(2).to.equals(colorA);
+        let colorB: string = Color[0];
+        log.info('enum colorB->'+colorB);
+        expect("Red").to.equals(colorB);
+    })
+});
 
+describe('Any Test',()=>{
+    it('should test any',()=>{
+        log.info('Any Test');
+        let notSure:any;
+        notSure=100;
+        log.info("notSure->"+notSure);
+        expect(100).to.equals(notSure);
+        notSure='Hundreed';
+        log.info("notSure->"+notSure);
+        expect("Hundreed").to.equals(notSure);
+    })
+});
+
+
+describe('Interface Test',()=>{
+    it('should test interface',()=>{
+        log.info('interface Test');
+        let mySquare =createSquare({color: "white"})
+        log.info('mySquare->'+mySquare);
+        expect(mySquare).to.not.be.null;
+    })
+});
+
+describe('Interface readonly variables Test',()=>{
+    it('should test interface readonly variables',()=>{
+        log.info('interface readonly variables Test');
+        let p1:Point = {a:10,b:20};
+        //p1.a = 5; // error!
+        log.info('p1.a ->'+p1.a+'p1.b->'+p1.b);
+        expect(p1).to.not.be.null;
+    })
+});
+
+describe('Class and interface',()=>{
+    it('should test Class and interface',()=>{
+        log.info('Class and interface Test');
+        let square:Square = new Square();
+        let result = square.drawShape(10,10,10);
+        log.info('Result after call to square draw->'+result);
+        expect(result).to.not.be.null;
+        expect(1000).to.equals(result);
+    })
+});
