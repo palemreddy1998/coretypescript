@@ -34,3 +34,15 @@ describe('String test',()=>{
         expect(string1).equals("mocha");
     }) ;
 });
+
+describe('Array test',()=>{
+    it('should test arrays',()=>{
+        let array1:Array<string> = new Array('one','two','three','four','five');
+        expect(array1).length(5);
+        //filter one value
+        expect(array1.filter(s=>(s.indexOf('ne')>-1))[0]).equals("one");
+        //filter multiple values
+        expect(array1.filter(s=>(s.indexOf('e')>-1))).length(3)
+    }) ;
+});
+
