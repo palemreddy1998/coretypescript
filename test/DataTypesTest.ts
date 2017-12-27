@@ -5,6 +5,10 @@ import {log,catProd} from '../lib/Config';
 import {createSquare} from '../lib/interfaces/Interface1'
 import {Point} from '../lib/interfaces/ReadonlyVariablesInterface'
 import {Square} from './Square'
+import {Animal} from '../lib/inheritance1/Inheritance1'
+import {Snake} from '../lib/inheritance1/Inheritance1'
+import {Horse} from '../lib/inheritance1/Inheritance1'
+import {GenericNumber} from '../lib/generics/Generic1'
 
 describe('Boolean test',()=>{
    it('should test boolean operator',()=>{
@@ -126,3 +130,73 @@ describe('Class and interface',()=>{
         expect(1000).to.equals(result);
     })
 });
+
+
+describe('Class and inheritance',()=>{
+    it('should test Class and inheritance',()=>{
+        log.info('Class and inheritance Test');
+        let sam = new Snake("Sammy the Python");
+        let tom: Animal = new Horse("Tommy the Palomino");
+
+        sam.move();
+        tom.move(34);
+    })
+});
+
+
+
+
+describe('Generics Test',()=>{
+    it('should test Generics',()=>{
+        log.info('Generics Test');
+        let myGenericNumber = new GenericNumber<number>();
+        myGenericNumber.zeroValue = 0;
+        let result = myGenericNumber.add = function(x, y) { return x + y; };
+        log.info('result->'+result);
+        expect(result).to.be.not.null;
+    })
+});
+
+
+describe('Array Values Test',()=>{
+    it('should test Array Values',()=>{
+        log.info('Array Values Test');
+        let list = [4, 5, 6,7];
+
+        for (let i in list) {
+            console.log(i); // "0", "1", "2",
+        }
+
+        for (let i of list) {
+            console.log(i); // "4", "5", "6"
+        }
+        expect(list).length(4)
+    })
+});
+
+
+
+describe.skip('Test anyc with callback', function() {
+    describe('use call back to test async', function() {
+        it('should save without error', function(done) {
+            var user = new User('Luna');
+            user.save(function(err) {
+                if (err) done(err);
+                else done();
+            });
+        });
+    });
+});
+
+
+
+
+class User {
+    constructor(s: string) {}
+    save(s:any){
+        return s;
+    }
+
+}
+
+

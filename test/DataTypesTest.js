@@ -6,6 +6,9 @@ var chai_1 = require("chai");
 var Config_1 = require("../lib/Config");
 var Interface1_1 = require("../lib/interfaces/Interface1");
 var Square_1 = require("./Square");
+var Inheritance1_1 = require("../lib/inheritance1/Inheritance1");
+var Inheritance1_2 = require("../lib/inheritance1/Inheritance1");
+var Generic1_1 = require("../lib/generics/Generic1");
 describe('Boolean test', function () {
     it('should test boolean operator', function () {
         Config_1.log.info("Boolean test");
@@ -117,4 +120,58 @@ describe('Class and interface', function () {
         chai_1.expect(1000).to.equals(result);
     });
 });
+describe('Class and inheritance', function () {
+    it('should test Class and inheritance', function () {
+        Config_1.log.info('Class and inheritance Test');
+        var sam = new Inheritance1_1.Snake("Sammy the Python");
+        var tom = new Inheritance1_2.Horse("Tommy the Palomino");
+        sam.move();
+        tom.move(34);
+    });
+});
+describe('Generics Test', function () {
+    it('should test Generics', function () {
+        Config_1.log.info('Generics Test');
+        var myGenericNumber = new Generic1_1.GenericNumber();
+        myGenericNumber.zeroValue = 0;
+        var result = myGenericNumber.add = function (x, y) { return x + y; };
+        Config_1.log.info('result->' + result);
+        chai_1.expect(result).to.be.not["null"];
+    });
+});
+describe('Array Values Test', function () {
+    it('should test Array Values', function () {
+        Config_1.log.info('Array Values Test');
+        var list = [4, 5, 6, 7];
+        for (var i in list) {
+            console.log(i); // "0", "1", "2",
+        }
+        for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
+            var i = list_1[_i];
+            console.log(i); // "4", "5", "6"
+        }
+        chai_1.expect(list).length(4);
+    });
+});
+describe.skip('Test anyc with callback', function () {
+    describe('use call back to test async', function () {
+        it('should save without error', function (done) {
+            var user = new User('Luna');
+            user.save(function (err) {
+                if (err)
+                    done(err);
+                else
+                    done();
+            });
+        });
+    });
+});
+var User = /** @class */ (function () {
+    function User(s) {
+    }
+    User.prototype.save = function (s) {
+        return s;
+    };
+    return User;
+}());
 //# sourceMappingURL=DataTypesTest.js.map
