@@ -1,7 +1,6 @@
 "use strict";
-exports.__esModule = true;
-var Config_1 = require("../lib/Config");
-var Square = /** @class */ (function () {
+var Config_1 = require('../lib/Config');
+var Square = (function () {
     function Square() {
     }
     Square.prototype.drawShape = function (height, width, length) {

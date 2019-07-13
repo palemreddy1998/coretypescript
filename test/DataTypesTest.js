@@ -1,14 +1,13 @@
 "use strict";
-exports.__esModule = true;
 /// <reference path="../typings/mocha/mocha.d.ts" />
 /// <reference path="../typings/chai/chai.d.ts"/>
-var chai_1 = require("chai");
-var Config_1 = require("../lib/Config");
-var Interface1_1 = require("../lib/interfaces/Interface1");
-var Square_1 = require("./Square");
-var Inheritance1_1 = require("../lib/inheritance1/Inheritance1");
-var Inheritance1_2 = require("../lib/inheritance1/Inheritance1");
-var Generic1_1 = require("../lib/generics/Generic1");
+var chai_1 = require('chai');
+var Config_1 = require('../lib/Config');
+var Interface1_1 = require('../lib/interfaces/Interface1');
+var Square_1 = require('./Square');
+var Inheritance1_1 = require('../lib/inheritance1/Inheritance1');
+var Inheritance1_2 = require('../lib/inheritance1/Inheritance1');
+var Generic1_1 = require('../lib/generics/Generic1');
 describe('Boolean test', function () {
     it('should test boolean operator', function () {
         Config_1.log.info("Boolean test");
@@ -30,14 +29,14 @@ describe('Date test', function () {
         Config_1.log.info("Date test");
         var date1 = new Date();
         console.log("date1 ->" + date1);
-        chai_1.expect(date1).to.not.be["null"];
+        chai_1.expect(date1).to.not.be.null;
     });
 });
 describe('String test', function () {
     it('should test strings', function () {
         Config_1.log.info("String test");
         var string1 = "mocha";
-        chai_1.expect(string1).to.not.be["null"];
+        chai_1.expect(string1).to.not.be.null;
         chai_1.expect(string1).equals("mocha");
     });
 });
@@ -98,7 +97,7 @@ describe('Interface Test', function () {
         Config_1.log.info('interface Test');
         var mySquare = Interface1_1.createSquare({ color: "white" });
         Config_1.log.info('mySquare->' + mySquare);
-        chai_1.expect(mySquare).to.not.be["null"];
+        chai_1.expect(mySquare).to.not.be.null;
     });
 });
 describe('Interface readonly variables Test', function () {
@@ -107,7 +106,7 @@ describe('Interface readonly variables Test', function () {
         var p1 = { a: 10, b: 20 };
         //p1.a = 5; // error!
         Config_1.log.info('p1.a ->' + p1.a + 'p1.b->' + p1.b);
-        chai_1.expect(p1).to.not.be["null"];
+        chai_1.expect(p1).to.not.be.null;
     });
 });
 describe('Class and interface', function () {
@@ -116,7 +115,7 @@ describe('Class and interface', function () {
         var square = new Square_1.Square();
         var result = square.drawShape(10, 10, 10);
         Config_1.log.info('Result after call to square draw->' + result);
-        chai_1.expect(result).to.not.be["null"];
+        chai_1.expect(result).to.not.be.null;
         chai_1.expect(1000).to.equals(result);
     });
 });
@@ -136,7 +135,7 @@ describe('Generics Test', function () {
         myGenericNumber.zeroValue = 0;
         var result = myGenericNumber.add = function (x, y) { return x + y; };
         Config_1.log.info('result->' + result);
-        chai_1.expect(result).to.be.not["null"];
+        chai_1.expect(result).to.be.not.null;
     });
 });
 describe('Array Values Test', function () {
@@ -166,7 +165,7 @@ describe.skip('Test anyc with callback', function () {
         });
     });
 });
-var User = /** @class */ (function () {
+var User = (function () {
     function User(s) {
     }
     User.prototype.save = function (s) {
